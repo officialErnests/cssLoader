@@ -22,6 +22,16 @@ document.getElementById("save").addEventListener("click", async () => {
     });
     const key = "web_" + hostname;
     await browser.storage.local.set({[key]: textare.value});
+    
+    await browser.tabs.query({ active: true, currentWindow: true })
+    .then(tabs => async (tabs) => {
+      const currentTab = tabs[0];
+      await browser.scripting.insertCSS({
+        target: { tabId: currentTab.id },
+        css: textare.value
+      });
+    });
+    
 });
 document.getElementById("reload").addEventListener('click', async () => {
     browser.tabs.query({ active: true, currentWindow: true })

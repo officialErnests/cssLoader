@@ -69,3 +69,69 @@ h2 {
 .main-header {
   display: none !important;
 }
+
+
+
+/* yt music */
+tp-yt-paper-slider {
+	cursor: grabbing;
+	--calculated-paper-slider-height: var(--paper-slider-height,10px);
+}
+#progress-bar.ytmusic-player-bar {
+	cursor: pointer;
+	--paper-slider-knob-color: rgb(0, 225, 255);
+	--paper-slider-knob-start-color: rgb(0, 0, 255);
+	--paper-slider-knob-start-border-color: rgb(255, 0, 0);
+	--paper-slider-secondary-color: rgba(0, 255, 255, 0.5);
+	--paper-slider-container-color: rgba(255, 0, 0, 0.5);
+	--paper-slider-active-color: linear-gradient(90deg in oklch,rgb(0, 255, 0), rgb(255, 0, 255));
+}
+#progress-bar.ytmusic-player-bar:hover, #progress-bar.ytmusic-player-bar[focused] {
+    --paper-slider-height: 5px;
+}
+#progress-bar.ytmusic-player-bar[focused], ytmusic-player-bar:hover #progress-bar.ytmusic-player-bar {
+    --paper-slider-knob-color: rgb(0, 255, 4);
+    --paper-slider-knob-start-color: rgb(0, 251, 255);
+    --paper-slider-knob-start-border-color: rgb(242, 0, 255);
+}
+.slider-knob-inner.tp-yt-paper-slider {
+	margin: -100vh 0 0 calc(35px / 2);
+	width: 2px;
+    border-width: 1px;
+	height: var(--paper-slider-knob-inner-size,calc(100% + 200vh));
+}
+ytmusic-player-bar {
+	color: rgb(0, 255, 255);
+}
+html {
+     /* https://grabient.com/HQJg7AjANMBsCsIZgBwAYYrBiwDMeS+ALBsGgJwowRrwyVg0XEywrShopA?style=angularGradient&angle=270 */
+    --ytmusic-player-page-background:repeating-conic-gradient(in oklch, #9218de 0.000deg, #714cd1 10.000deg, #4f83c3 20.000deg, #2dbbb6 30.000deg, #0bf2aa 40.000deg);
+    --ytmusic-brand-background-solid: #220071;
+    --ytmusic-text-primary: #9b00fb;
+    --ytmusic-player-bar-background: #71004d;
+    --ytmusic-general-background-c: #220071;
+    --ytmusic-text-primary: #9b00fb;
+    --ytmusic-background: #71004d;
+}
+#side-panel {
+    background:linear-gradient(in oklch, #ff2890, #ff2890 calc(100%/3), #ffd908 calc(100%/3), #ffd908 calc(200%/3), #28b3ff calc(200%/3), #28b3ff);
+    background-color: #50005050;
+    padding: 5px;
+    margin: 0 0 20px 0;
+    border-radius: 5px;
+}
+.song-info, .duration.ytmusic-player-queue-item {
+    background-color: #00000069;
+    padding: 5px;
+    border-radius: 5px;
+}
+.duration.ytmusic-player-queue-item {
+    margin-left: 20px;
+}
+#player {
+    transform: skewX(10deg);
+    filter: saturate(2) contrast(150%) drop-shadow(50px 5px rgb(0, 153, 255)) drop-shadow(100px 10px orange);
+}
+.ytSpecButtonShapeNextMono.ytSpecButtonShapeNextText {
+	color: #1100ff;
+}

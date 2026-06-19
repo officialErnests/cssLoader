@@ -15,5 +15,4 @@ async function loadweb(tabId, changeInfo, tab) {
         target: { tabId: tab.id },
         css: result[key]
     });
-    
 }
