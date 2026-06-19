@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+* {
+
+    box-sizing: border-box;
+}
+h1 {
+    margin: 0;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+textarea {
+    direction: rtl;
+}

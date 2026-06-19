@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "CssLoader",
+  "version": "1.0",
+
+  "description": "Loads predefined css to website",
+
+  "icons": {
+    "48": "icons/AHHH.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
+    "host_permissions": [
+    "<all_urls>"
+  ],
+    "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CSS Injector"
+  }
+}

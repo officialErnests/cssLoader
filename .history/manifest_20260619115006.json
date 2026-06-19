@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "CssLoader",
+  "version": "1.0",
+
+  "description": "Loads predefined css to website",
+
+  "icons": {
+    "48": "icons/AHHH.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cssloader@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["cssloader.js"]
+    }
+  ]
+}
