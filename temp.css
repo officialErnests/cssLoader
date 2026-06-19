@@ -1,0 +1,71 @@
+/* eklase */
+:root {
+    --bg-primary:#0E162C;
+    --bg-secondary:#011936;
+    --fg-primary:#00C0FE;
+    --fg-secondary:#FF36AB;
+    --bs-body-bg:var(--bg-secondary) !important;
+}
+/* hide */
+header.header .header__bottom-part, .layout_index__main, .main-header, .footer, .header__bottom-part, .login-header {
+    display: none !important;
+}
+/* Primary bg */
+body {
+    background: var(--bg-primary) !important;  
+    background-color:  var(--bg-primary) !important;
+}
+/* Primary bg + border*/
+input[type="text"], input[type="password"]{
+    border-color: var(--fg-primary) !important;
+    background-color: var(--bg-primary) !important;
+    color: var(--fg-primary) !important;
+}
+/* Primary button*/ 
+.btn.btn-new-success, .btn.btn-new-primary {
+    color: var(--fg-primary) !important;
+    --bs-btn-bg: var(--fg-secondary) !important;
+    --bs-btn-border-color: var(--fg-primary) !important;
+    --bs-btn-disabled-bg: var(--bg-secondary) !important;
+    --bs-btn-disabled-border-color: var(--fg-secondary) !important;
+    --bs-btn-hover-bg: var(--fg-secondary) !important;
+    --bs-btn-hover-border-color: var(--fg-primary) !important;
+    --bs-btn-active-bg: var(--fg-secondary) !important;
+    --bs-btn-active-border-color: var(--fg-secondary) !important;
+}
+/* Primary text */
+h2 {
+    color: var(--fg-primary) !important;
+}
+/* Secondary bg */
+.login-widget .login-widget__header {
+    background-color: var(--bg-secondary) !important;
+}
+/* Secondary bg + border*/
+.login-card, .login-widget{
+    background-color: var(--bg-primary) !important;
+    border-color: var(--fg-secondary);
+}
+/* Secondary text */
+.subtitle, label {
+    color: var(--fg-secondary) !important;
+}
+
+/* Center flex */
+.index-page {
+    display: flex !important;
+    justify-content: center;
+}
+
+
+
+
+
+/* Novelfire*/
+.page-in {
+  width: 100% !important;
+  max-width: 100% !important;;
+}
+.main-header {
+  display: none !important;
+}
