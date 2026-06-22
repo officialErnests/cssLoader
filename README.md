@@ -7,9 +7,8 @@
 4. check addons and click the goofy fella and start customazing XDD
 This is just quick goody addon made in bout 2hrs, also will reset in each browser refresh :sob:
 but data is saved! Only thing is to repeat the above steps!
-## More permanent
 ## Compress it yourself
-1. 7z a -tzip -mm=Deflate -mx9 -mfb=258 -mmt=8 your-extension.xpi *
+1. 7z a -tzip -mm=Deflate -mx9 -mfb=258 -mmt=8 cssloader.xpi *
 
 # Instructions on how to use:
 1. The text shows whic website it is loaded
@@ -18,7 +17,8 @@ but data is saved! Only thing is to repeat the above steps!
 4. Reload -> reloads webpage
 5. Discard -> discards curent changes and loads saved ones
 6. Unload all tabs, just unloads all tabs to save ram. Compleatly unrelated, but i wanted that XDD
-
+##
+Also for advanced users there are style slots for multiple styles with style menu
 # Others
 Idk, rice the web. maybe will add rice slots in future so you can save rices + nicer editor ;))
 <br>

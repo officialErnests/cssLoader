@@ -7,16 +7,20 @@ const tab_3_btn = document.getElementById("utils")
 const tab_1_element = document.getElementById("stylize_element")
 const tab_2_element = document.getElementById("slots_element")
 const tab_3_element = document.getElementById("utils_element")
-let current_slot
 let current_tab
-function renderSlot() {
-  slot.innerText = "Current slot: " + (current_slot['current_slot'])
+async function renderSlot() {
+  let b = await browser.storage.local.get('current_slot')
+  let key = ('slot_' + b['current_slot'])
+  let aaaa = await browser.storage.local.get(key)
+  if (aaaa[key] === undefined) {
+    await innitDefault()
+  }
+  slot.innerHTML = b['current_slot'] + ':' + aaaa[key]
 }
 async function load_def() {
   current_slot = await browser.storage.local.get('current_slot');
-  if (current_slot['current_slot'] == null) {
-    current_slot['current_slot'] = 0
-    await browser.storage.local.set({ 'current_slot': 0 });
+  if (current_slot['current_slot'] === undefined) {
+    innitDefault()
   }
   renderSlot()
 
@@ -26,7 +30,7 @@ async function load_def() {
       const currentTab = tabs[0];
       hostname = new URL(currentTab.url).hostname
     });
-  const key = "web_" + current_slot + "_" + hostname;
+  const key = "web_" + current_slot['current_slot'] + "_" + hostname;
   const result = await browser.storage.local.get(key);
   textare.value = result[key];
   curTab.innerText = 'Curent tab:' + hostname;
@@ -38,7 +42,9 @@ document.getElementById("save").addEventListener("click", async () => {
       const currentTab = tabs[0];
       hostname = new URL(currentTab.url).hostname
     });
-  const key = "web_" + current_slot + "_" + hostname;
+
+  current_slot = await browser.storage.local.get('current_slot');
+  const key = "web_" + current_slot['current_slot'] + "_" + hostname;
   await browser.storage.local.set({ [key]: textare.value });
 
   await browser.tabs.query({ active: true, currentWindow: true })
@@ -103,14 +109,12 @@ document.getElementById('slot_create').addEventListener('click', async () => {
   if (regex.test(x.value)) {
     let create_index = await browser.storage.local.get("create_index")
     if (create_index['create_index'] == null) {
-      await browser.storage.local.set({ ['slot_0']: '<span style="text-shadow: 2px 2px #f0f; translation: skewX(10deg);">Default</span>' })
       innitDefault()
       create_index['create_index'] = 1
       browser.storage.local.set({ ['create_index']: 2 })
     }
     await browser.storage.local.set({ ['current_slot']: create_index['create_index'] })
     await browser.storage.local.set({ ['slot_' + create_index['create_index']]: x.value })
-    current_slot = create_index
     browser.storage.local.set({ ['create_index']: create_index['create_index'] + 1 })
     refreshSlots()
   } else {
@@ -131,9 +135,22 @@ async function refreshSlots() {
   renderSlot()
 }
 async function innitDefault() {
-
-  console.log('INNIT THE MAIN');
-
+  await browser.storage.local.set({ ['slot_0']: '<span style="color:#0f0;text-shadow: 2px 2px #f0f; translation: skewX(10deg);">Default</span>' })
+  current_slot['current_slot'] = 0
+  await browser.storage.local.set({ 'current_slot': 0 });
+  refreshSlots()
+  firstLoad()
+  loadDefault()
+}
+async function loadDefault() {
+  const preset = await fetch('preset.json')
+  let cool_preset_json = await preset.json()
+  let c = await browser.storage.local.get('current_slot');
+  for (let i in  cool_preset_json) {
+    const key = "web_" + c['current_slot'] + "_" + i;
+    await browser.storage.local.set({ [key]: cool_preset_json[i] });
+  }
+  
 }
 slot_selector_element.addEventListener('change', async () => {
   slot_selector_element.value = Math.max(Math.min(slot_selector_element.value, 1000), 0)
@@ -150,8 +167,12 @@ slot_selector_element.addEventListener('change', async () => {
 document.getElementById('slot_rename_btn').addEventListener('click', async () => {
   let b = await browser.storage.local.get('current_slot')
   const key = "slot_" + b['current_slot']
-  await browser.storage.local.set({[b[key]]: document.getElementById('slot_rename').value})
+  await browser.storage.local.set({[key]: document.getElementById('slot_rename').value})
+  document.getElementById('curent_slot').innerHTML = document.getElementById('slot_rename').value
   renderSlot()
+})
+document.getElementById('slot_load_preset').addEventListener('click', async () => {
+  loadDefault()
 })
 
 firstLoad()

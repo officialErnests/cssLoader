@@ -10,7 +10,8 @@ async function loadweb(tabId, changeInfo, tab) {
     }
 
     await browser.storage.local.set({ curent_web: hostname });
-    const key = "web_" + current_slot + "_" + hostname;
+    const key = "web_" + current_slot['current_slot'] + "_" + hostname;
+    
     let result = await browser.storage.local.get(key);
     if (result[key] === undefined) {
         result = await browser.storage.local.set({ [key]: "/* Custom style */" });
