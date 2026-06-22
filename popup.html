@@ -2,19 +2,55 @@
 <html>
     <header>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Broken+Fax&display=swap" rel="stylesheet">
     </header>
     <body>
-        <h1>Cssloader</h1>
-        <p id="current">Current tab:</p>
-        <div>
-            <textarea name="css" id="css"></textarea>
+        <h1 class="brokk">CSS//LOADER</h1>
+        <div class="contents">
+            <div class="buttons">
+                <button id="stylize">Stylize</button>
+                <button id="slots">Slots</button>
+                <button id="utils">Utils</button>
+            </div>
+            <div class="stylize bg" id="stylize_element">
+                <p>STYLIZIEEEE</p>
+                <p id="slot">Current slot:</p>
+                <p id="current">Current tab:</p>
+                <div>
+                    <textarea name="css" id="css"></textarea>
+                </div>
+                <div class="buttons">
+                    <button id="save">Save</button>
+                    <button id="reload">Reload</button>
+                    <button id="discard">Discard</button>
+                </div>
+            </div>
+            <div class="slots bg" id="slots_element">
+                <p>SLOTSZZZZZ</p>
+                <span>
+                    <input type="text" name="slot_name" id="slot_name">
+                    <button id="slot_create">Add slot</button>
+                </span>
+                <p class="error" id="slots_error"></p>
+                <span>
+                    <input type="number" name="slots" id="slot_selector" min="0" max="1000">
+                    <span id="curent_slot"></span>
+                </span>
+                <span>
+                    <input type="text" name="slot_rename" id="slot_rename">
+                    <button id="slot_rename_btn">rename</button>
+                </span>
+                <button class="slot_load_preset">Load preset into 0</button>
+            </div>
+            <div class="utility bg" id="utils_element">
+                <p>Utils</p>
+                <button id="unload">Unload ALL tabs</button>
+            </div>
+            <script src="popup.js"></script>
+            <p class="smaller brokk">By: n0o0b090lv</p>
+            <p class="smaller brokk">Opensource link:<br><a href=" https://github.com/officialErnests/cssLoader"> https://github.com/officialErnests/cssLoader</a></p>
         </div>
-        <div class="buttons">
-            <button id="save">Save</button>
-            <button id="reload">Reload</button>
-            <button id="discard">Discard</button>
-        </div>
-        <button id="unload">Unload ALL</button>
-        <script src="popup.js"></script>
     </body>
 </html>

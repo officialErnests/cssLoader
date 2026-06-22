@@ -1,12 +1,17 @@
 # How to install plugin:
 (firefox only, maybe chrome but unlikely)
+## Temporary
 1. go to about:debugging#/runtime/this-firefox
 2. click "Load temporary addon"
 3. choose manifest.json
 4. check addons and click the goofy fella and start customazing XDD
 This is just quick goody addon made in bout 2hrs, also will reset in each browser refresh :sob:
 but data is saved! Only thing is to repeat the above steps!
-# Instructions:
+## More permanent
+## Compress it yourself
+1. 7z a -tzip -mm=Deflate -mx9 -mfb=258 -mmt=8 your-extension.xpi *
+
+# Instructions on how to use:
 1. The text shows whic website it is loaded
 2. To copy/paste css use the text area
 3. Save button saves the changes + loads them so click around website to load new css (no refresh needed ;]])

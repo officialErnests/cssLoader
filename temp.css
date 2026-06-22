@@ -135,3 +135,13 @@ html {
 .ytSpecButtonShapeNextMono.ytSpecButtonShapeNextText {
 	color: #1100ff;
 }
+
+
+
+
+
+/* Stack overflow*/
+body {
+--white: black !important;
+--black-600: #aaa !important;
+}
