@@ -6,7 +6,7 @@
     "description": "Loads predefined css to website",
     "browser_specific_settings": {
         "gecko": {
-            "id": "n0o0b090lv@gmail.com",
+            "id": "cssloader-v1.0@noob-dev.fyi",
             "data_collection_permissions": {
                 "required": ["none"]
             }
